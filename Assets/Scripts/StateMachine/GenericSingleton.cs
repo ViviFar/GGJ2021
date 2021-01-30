@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericStateMachine : MonoBehaviour
+public class GenericSingleton<T> : MonoBehaviour where T:Component
 {
-    private static GenericStateMachine instance;
-    public static GenericStateMachine Instance
+    private static T instance;
+    public static T Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<GenericStateMachine>();
+                instance = FindObjectOfType<T>();
                 if (instance == null)
                 {
                     GameObject go = new GameObject();
-                    go.AddComponent<GenericStateMachine>();
+                    go.AddComponent<T>();
                     go.name = "StateMachine";
                 }
             }
@@ -23,11 +23,15 @@ public class GenericStateMachine : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        if(instance != this)
+        if(instance != null)
         {
             Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this as T;
         }
     }
 }
