@@ -80,6 +80,10 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
         {
             currentState = GameStates.CleAMoletteFound;
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            currentState = GameStates.LampFound;
+        }
 #endif
     }
 

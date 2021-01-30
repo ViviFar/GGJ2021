@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+#region fields Utilisateur
     [SerializeField]
     [Range(0.0f,10.0f)]
     private float speed = 4.0f;
@@ -22,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
 
+    [SerializeField]
+    private Animator anim;
+    #endregion
+
+#region private properties
     private float speedModifier = 0.0f;
     
     float vx, vy;
@@ -38,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private int platformLayer;
 
     private BoxCollider2D col;
-
+#endregion
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerLayer = gameObject.layer;
         platformLayer = LayerMask.NameToLayer("Platform");
+        anim.SetBool("Moving", false);
     }
 
     // Update is called once per frame
@@ -65,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             canJump = Physics2D.Linecast(transform.position, groundCheck.position, whatIsGround);
-            Debug.Log("demande de saut");
             Jump();
         }
         rg.velocity = new Vector2(vx, vy);
@@ -75,6 +82,14 @@ public class PlayerMovement : MonoBehaviour
     private void MoveLeftRight(float deltaTime)
     {
         vx = Input.GetAxisRaw("Horizontal") * speed + speedModifier;
+        if(vx != 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
+        }
         Vector2 moveDir = new Vector2(vx * deltaTime, 0.2f);
         Vector2 bottomRight = new Vector2(col.bounds.max.x, col.bounds.max.y);
         Vector2 topLeft = new Vector2(col.bounds.min.x, col.bounds.min.y);
@@ -95,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canJump)
         {
-            Debug.Log("je peux sauter");
             vy = 0;
             canJump = false;
             if (onConveyorBelt)
