@@ -96,4 +96,9 @@ public class PlayerMovement : MonoBehaviour
             cb.PlayerIsOn = false;
         }
     }
+
+    public void UpdateSpeedModifier(float newSpeed)
+    {
+        speedModifier = newSpeed;
+    }
 }

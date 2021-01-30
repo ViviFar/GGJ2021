@@ -24,7 +24,14 @@ public class RepairPlatforms : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, Mathf.Infinity, (int)repairableObject);
             if (hit.collider != null)
             {
-                hit.collider.gameObject.GetComponent<GenericPlatform>().Repair();
+                if (hit.collider.gameObject.tag == "ConveyorBelt")
+                {
+                    hit.collider.gameObject.GetComponent<ConveyorBelt>().Repair();
+                }
+                else
+                {
+                    hit.collider.gameObject.GetComponent<MonteCharge>().Repair();
+                }
             }
         }
     }

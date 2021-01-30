@@ -24,8 +24,10 @@ public class MonteCharge : GenericPlatform
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !estCasse)
+        if (collision.gameObject.tag == "Player")
         {
+            playerIsOn = true;
+            if(!estCasse && !isMoving)
             collision.transform.SetParent(this.transform);
             StartCoroutine(MonterDescendre());
         }
@@ -64,7 +66,17 @@ public class MonteCharge : GenericPlatform
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerIsOn = false;
             collision.transform.SetParent(null);
+        }
+    }
+
+    public override void Repair()
+    {
+        base.Repair();
+        if (playerIsOn)
+        {
+            StartCoroutine(MonterDescendre());
         }
     }
 }

@@ -16,7 +16,7 @@ public enum GameStates
 public class GameStateMachine : GenericSingleton<GameStateMachine>
 {
     [SerializeField]
-    private GameStates currentState;
+    private GameStates currentState = GameStates.Menu;
     public GameStates CurrentState
     {
         get { return currentState; }
@@ -49,6 +49,7 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
     {
         if (currentState != previousState)
         {
+            previousState = currentState;
             switch (currentState)
             {
                 case GameStates.Menu:
@@ -73,6 +74,13 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
                     break;
             }
         }
+
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            currentState = GameStates.CleAMoletteFound;
+        }
+#endif
     }
 
     private void OnMenuEnterState()
@@ -93,6 +101,7 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
 
     private void OnCleAMoletteFoundEnterState()
     {
+        Debug.Log("unlocked repairs");
         canRepair = true;
     }
 

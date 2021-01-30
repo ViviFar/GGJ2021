@@ -16,4 +16,13 @@ public class ConveyorBelt : GenericPlatform
         }
     }
 
+    public override void Repair()
+    {
+        base.Repair();
+        if (playerIsOn)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().UpdateSpeedModifier(speed);
+        }
+    }
+
 }
