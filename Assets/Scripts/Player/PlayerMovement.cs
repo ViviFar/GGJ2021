@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         playerLayer = gameObject.layer;
         platformLayer = LayerMask.NameToLayer("Platform");
         anim.SetBool("Moving", false);
+        anim.SetBool("Jumping", false);
     }
 
     // Update is called once per frame
@@ -70,9 +71,17 @@ public class PlayerMovement : MonoBehaviour
 
         MoveLeftRight(Time.deltaTime);
         vy = rg.velocity.y;
+        canJump = Physics2D.Linecast(transform.position, groundCheck.position, whatIsGround);
+        if (canJump)
+        {
+            anim.SetBool("Jumping", false);
+        }
+        else
+        {
+            anim.SetBool("Jumping", true);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            canJump = Physics2D.Linecast(transform.position, groundCheck.position, whatIsGround);
             Jump();
         }
         rg.velocity = new Vector2(vx, vy);
@@ -81,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveLeftRight(float deltaTime)
     {
-        vx = Input.GetAxisRaw("Horizontal") * speed + speedModifier;
+        vx = Input.GetAxisRaw("Horizontal") * speed;
         if(vx != 0)
         {
             anim.SetBool("Moving", true);
@@ -90,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("Moving", false);
         }
+        vx += speedModifier;
         Vector2 moveDir = new Vector2(vx * deltaTime, 0.2f);
         Vector2 bottomRight = new Vector2(col.bounds.max.x, col.bounds.max.y);
         Vector2 topLeft = new Vector2(col.bounds.min.x, col.bounds.min.y);
@@ -110,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canJump)
         {
+            anim.SetBool("Jumping", true);
             vy = 0;
             canJump = false;
             if (onConveyorBelt)
@@ -117,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 rg.AddForce(new Vector2(0, jumpForce));
         }
+
     }
 
 

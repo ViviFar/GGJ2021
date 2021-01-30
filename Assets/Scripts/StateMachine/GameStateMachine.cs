@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameStates
 {
@@ -74,6 +75,13 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
                     break;
             }
         }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (currentState != GameStates.Menu)
+        //    {
+        //        Time.timeScale = 0;
+        //    }
+        //}
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         if (Input.GetKeyDown(KeyCode.Q))
@@ -90,12 +98,13 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
     private void OnMenuEnterState()
     {
         //TODO: load Menu Scene
+        SceneManager.LoadScene(0);
     }
 
     private void OnIntroEnterState()
     {
         ResetGame();
-        //TODO: load intro scene (or game scene and launch intro)
+        SceneManager.LoadScene(1);
     }
 
     private void OnGameStartEnterState()
@@ -105,7 +114,6 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
 
     private void OnCleAMoletteFoundEnterState()
     {
-        Debug.Log("unlocked repairs");
         canRepair = true;
     }
 
