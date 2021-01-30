@@ -27,9 +27,11 @@ public class MonteCharge : GenericPlatform
         if (collision.gameObject.tag == "Player")
         {
             playerIsOn = true;
-            if(!estCasse && !isMoving)
-            collision.transform.SetParent(this.transform);
-            StartCoroutine(MonterDescendre());
+            if (!estCasse && !isMoving)
+            {
+                collision.transform.SetParent(this.transform);
+                StartCoroutine(MonterDescendre());
+            }
         }
     }
 
