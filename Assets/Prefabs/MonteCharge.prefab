@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ac5db7fdd338243bee69fa246cdf99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  estCasse: 1
+  estCasse: 0
   startTr: {fileID: 3003933492125614642}
   targetTr: {fileID: 3003933490212828599}
   timeToTravel: 2
