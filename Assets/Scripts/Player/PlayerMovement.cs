@@ -124,7 +124,12 @@ public class PlayerMovement : MonoBehaviour
             vy = 0;
             canJump = false;
             if (onConveyorBelt)
-                rg.AddForce(new Vector2(0, jumpForce + jumpForceFromConveyor));
+            {
+                if(Input.GetAxisRaw("Horizontal") * speedModifier>0) //le conveyor et le joueur vont dans le même sens
+                    rg.AddForce(new Vector2(0, jumpForce + jumpForceFromConveyor));
+                else
+                    rg.AddForce(new Vector2(0, jumpForce - jumpForceFromConveyor));
+            }
             else
                 rg.AddForce(new Vector2(0, jumpForce));
         }

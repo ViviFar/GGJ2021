@@ -25070,11 +25070,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6561818691475663650, guid: 180d0d923f11c6545bce735877f10e69,
-        type: 3}
-      propertyPath: jumpForce
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 6561818691475663653, guid: 180d0d923f11c6545bce735877f10e69,
         type: 3}
       propertyPath: m_LocalPosition.x

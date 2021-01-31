@@ -38,11 +38,16 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
         get { return lampFound; }
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         previousState = currentState;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame

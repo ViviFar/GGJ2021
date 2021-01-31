@@ -12,7 +12,10 @@ public class ConveyorBelt : GenericPlatform
             if (estCasse)
                 return 0;
             else
-                return speed;
+            {
+                int signe = (int)(transform.localScale.x / (Mathf.Abs(transform.localScale.x)));
+                return signe*speed;
+            }
         }
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1372177527136096506}
   - component: {fileID: 4671677983308718506}
   m_Layer: 10
-  m_Name: ConveyorBeltworking
+  m_Name: ConveyorBelt
   m_TagString: ConveyorBelt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3948071527823331438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.59, y: -1.27, z: -3.980766}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
