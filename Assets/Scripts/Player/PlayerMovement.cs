@@ -35,10 +35,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 positionInitial;
     private Rigidbody2D rg;
     private bool canJump = true;
-
-    private bool facingRight = true;
+    
     private bool onConveyorBelt = false;
-
+    private bool canMove = true;
 
     private int playerLayer;
     private int platformLayer;

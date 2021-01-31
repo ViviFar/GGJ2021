@@ -25,5 +25,6 @@ public class SoundManager : GenericSingleton<SoundManager>
 
     private void Update()
     {
+
     }
 }

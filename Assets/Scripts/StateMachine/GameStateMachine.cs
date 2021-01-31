@@ -119,6 +119,7 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
 
     private void OnCleAMoletteFoundEnterState()
     {
+        Debug.Log("cle found");
         canRepair = true;
     }
 
