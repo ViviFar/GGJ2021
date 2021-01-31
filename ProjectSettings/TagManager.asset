@@ -43,6 +43,9 @@ TagManager:
   - name: Backgournd
     uniqueID: 1516605831
     locked: 0
+  - name: arrow
+    uniqueID: 3263193035
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

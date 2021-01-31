@@ -784,7 +784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &970061613
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1556,10 +1556,10 @@ RectTransform:
   m_Father: {fileID: 2072599141}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.68734896, y: 0.63882816}
-  m_AnchorMax: {x: 1, y: 0.8141719}
-  m_AnchoredPosition: {x: -30.270004, y: 0.80000305}
-  m_SizeDelta: {x: -58.533173, y: -2.2874603}
+  m_AnchorMin: {x: 0.53659236, y: 0.17782173}
+  m_AnchorMax: {x: 1, y: 0.9473439}
+  m_AnchoredPosition: {x: -7.600006, y: 3.9000015}
+  m_SizeDelta: {x: -15.107346, y: -6.4966125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293325286
 MonoBehaviour:
@@ -1594,7 +1594,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Laurent: Sound design, graphics and level design'
+  m_Text: 'Coding, implementation & level design: Votre Pseudo
+
+
+    Drawings, animations
+    & implementation: Hyblis
+
+
+    Level design, music, sounds & drawings: Klosen'
 --- !u!222 &1293325287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2175,7 +2182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1854815654
 RectTransform:
   m_ObjectHideFlags: 0

@@ -18,8 +18,9 @@ public class BlackZone : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else
+        else if(collision.gameObject.tag=="Player")
         {
+            Debug.Log("casse toi player");
             itsTooDarkInHere.SetActive(true);
         }
     }
@@ -28,7 +29,13 @@ public class BlackZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            itsTooDarkInHere.SetActive(false);
+            StartCoroutine(OterTexte());
         }
+    }
+
+    private IEnumerator OterTexte()
+    {
+        yield return new WaitForSeconds(2);
+        itsTooDarkInHere.SetActive(false);
     }
 }

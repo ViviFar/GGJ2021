@@ -61,9 +61,6 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
                 case GameStates.Menu:
                     OnMenuEnterState();
                     break;
-                case GameStates.Intro:
-                    OnIntroEnterState();
-                    break;
                 case GameStates.GameStart:
                     OnGameStartEnterState();
                     break;
@@ -106,16 +103,12 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
         SceneManager.LoadScene(0);
     }
 
-    private void OnIntroEnterState()
+    private void OnGameStartEnterState()
     {
         ResetGame();
         SceneManager.LoadScene(1);
     }
 
-    private void OnGameStartEnterState()
-    {
-        //TODO: load game 1st scene (or allow the player to move if same szcene as intro)
-    }
 
     private void OnCleAMoletteFoundEnterState()
     {
@@ -131,6 +124,7 @@ public class GameStateMachine : GenericSingleton<GameStateMachine>
     private void OnFinalPieceFoundEnterState()
     {
         //TODO: launch ending scene
+        SceneManager.LoadScene(2);
     }
 
 
