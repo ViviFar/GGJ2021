@@ -16,9 +16,19 @@ public class ConveyorBelt : GenericPlatform
         }
     }
 
+    private Animator anim;
+
+    protected override void Start()
+    {
+        base.Start();
+        anim = GetComponent<Animator>();
+        anim.SetBool("IsBroken", estCasse);
+    }
+
     public override void Repair()
     {
         base.Repair();
+        anim.SetBool("IsBroken", estCasse);
         if (playerIsOn)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().UpdateSpeedModifier(speed);

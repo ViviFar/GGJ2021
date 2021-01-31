@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             vy = 0;
             canJump = false;
             if (onConveyorBelt)
-                rg.AddForce(new Vector2(jumpForceFromConveyor, jumpForce));
+                rg.AddForce(new Vector2(0, jumpForce + jumpForceFromConveyor));
             else
                 rg.AddForce(new Vector2(0, jumpForce));
         }
@@ -136,10 +136,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "ConveyorBelt")
         {
-            onConveyorBelt = true;
             ConveyorBelt cb = collision.gameObject.GetComponent<ConveyorBelt>();
-            speedModifier = cb.Speed;
-            cb.PlayerIsOn = true;
+            if (!cb.EstCasse)
+            {
+                onConveyorBelt = true;
+                speedModifier = cb.Speed;
+                cb.PlayerIsOn = true;
+            }
         }
     }
 
@@ -156,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpdateSpeedModifier(float newSpeed)
     {
+        onConveyorBelt = true;
         speedModifier = newSpeed;
     }
     

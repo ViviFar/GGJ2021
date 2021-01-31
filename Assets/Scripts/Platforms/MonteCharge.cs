@@ -16,8 +16,9 @@ public class MonteCharge : GenericPlatform
     private Vector3 targetPos;
     private bool isMoving = false;
 
-    private void Awake()
+    protected override void Start()
     {
+        base.Start();
         starPos = startTr.position;
         targetPos = targetTr.position;
     }

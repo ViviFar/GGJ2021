@@ -40,10 +40,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3003933491054875785}
   - component: {fileID: 3003933491054875790}
-  - component: {fileID: 3003933491054875791}
   - component: {fileID: 3003933491054875788}
+  - component: {fileID: 5406433033730303438}
   m_Layer: 10
-  m_Name: MonteCharge
+  m_Name: MonteChargeFonctionnel
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 3003933491054875789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.305, y: -4.626, z: -3.980766}
-  m_LocalScale: {x: 24, y: 1.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3003933492125614642}
   - {fileID: 3003933490212828599}
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3995f26329738a94d812a6da8eceada5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +116,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3003933491054875791
+--- !u!114 &3003933491054875788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003933491054875789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ac5db7fdd338243bee69fa246cdf99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  estCasse: 0
+  platformBroken: {fileID: 21300000, guid: efcd58a27b027df44b93b675ab53c97c, type: 3}
+  platformRepaired: {fileID: 21300000, guid: 3995f26329738a94d812a6da8eceada5, type: 3}
+  startTr: {fileID: 3003933492125614642}
+  targetTr: {fileID: 3003933490212828599}
+  timeToTravel: 2
+--- !u!61 &5406433033730303438
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,33 +149,17 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 2.56, y: 0.64}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 2.56, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &3003933491054875788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3003933491054875789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ac5db7fdd338243bee69fa246cdf99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  estCasse: 0
-  startTr: {fileID: 3003933492125614642}
-  targetTr: {fileID: 3003933490212828599}
-  timeToTravel: 2
 --- !u!1 &3003933492125614643
 GameObject:
   m_ObjectHideFlags: 0
